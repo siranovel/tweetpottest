@@ -17,5 +17,3 @@ jobs:
         ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
       with:
         status: "Hi, this is a test!"
-
-
