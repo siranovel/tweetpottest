@@ -15,6 +15,7 @@ jobs:
       with:
         node-version: "20"
         cache: npm
+    - run: npm install
     - uses: twitter-together/action@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
