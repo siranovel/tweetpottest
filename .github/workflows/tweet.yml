@@ -10,6 +10,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        path: package-lock.json
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
