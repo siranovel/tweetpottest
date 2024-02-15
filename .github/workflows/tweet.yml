@@ -10,14 +10,23 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-      with:
-        path: package-lock.json
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: "20"
         cache: npm
-    - run: npm install
+    - name: Cache node modules
+      id: cache-npm
+      uses: actions/cache@v3
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
     - uses: twitter-together/action@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
