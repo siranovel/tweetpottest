@@ -27,7 +27,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-    - uses: twitter-together/action@v4
+    - uses: twitter-together/action@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         TWITTER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
