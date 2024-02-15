@@ -10,11 +10,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: "20"
-        cache: npm
     - name: Cache node modules
       id: cache-npm
       uses: actions/cache@v3
@@ -27,6 +22,11 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: "20"
+        cache: npm
     - uses: twitter-together/action@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
