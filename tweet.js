@@ -1,4 +1,4 @@
-const Titter = require('twitter-lite');
+const Twitter = require('twitter-lite');
 
 const client = new Twitter({
   subdoain: "api",
