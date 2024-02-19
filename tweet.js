@@ -1,7 +1,6 @@
 const Twitter = require('twitter-lite');
 
 const client = new Twitter({
-  subdomain: "api",
   version: "2",
   extension: false,
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
