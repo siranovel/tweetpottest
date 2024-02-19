@@ -15,7 +15,7 @@ jobs:
       with:
         node-version: '20.x'
     - name: Install dependencies
-      run: npm install
+      run: npm install twitter-lite
     - name: Tweet on Push
       env:
         TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
