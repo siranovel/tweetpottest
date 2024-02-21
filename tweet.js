@@ -19,7 +19,7 @@ const client = new Twitter({
 const tweet = 'New commit pushed to ${process.env.GITHUB_REPOSITORY}!';
 
 client
-  .post("tweets", {
+  .post("statuses/update", {
     status: tweet,
   })
   .then((result) => {
