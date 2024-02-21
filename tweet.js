@@ -7,7 +7,7 @@ const user = new Twitter({
 // const response = getBearerToken();
 const client = new Twitter({
   subdomain: "api",
-  version: "2",
+  version: "1.1",
   extension: false,
   bearer_token: process.env.TWITTER_BEARER_TOKEN,
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
