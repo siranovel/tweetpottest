@@ -4,7 +4,7 @@ const user = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
 });
-const response = async user.getBearerToken();
+const response = getBearerToken();
 const client = new Twitter({
   subdomain: "api",
   version: "2",
