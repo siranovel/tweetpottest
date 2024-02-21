@@ -16,7 +16,7 @@ const client = new Twitter({
   access_token_secret: process.env.TWITTER_CCESS_TOKEN_SECRET,
 });
 
-const tweet = 'New commit pushed to ${process.env.GITHUB_REPOSITORY}!';
+const tweet = 'New commit pushed ';
 
 client
   .post("statuses/update", {
