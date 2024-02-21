@@ -4,12 +4,12 @@ const user = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
 });
-const response = getBearerToken();
+// const response = getBearerToken();
 const client = new Twitter({
   subdomain: "api",
   version: "2",
   extension: false,
-  bearer_token: response.access_token,
+  bearer_token: process.env.TWITTER_BEARER_TOKEN,
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
   access_token_key: process.env.TWITTER_ACCESS_TOKEN,
