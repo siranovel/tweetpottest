@@ -20,7 +20,7 @@ const tweet = 'New commit pushed to ${process.env.GITHUB_REPOSITORY}!';
 
 client
   .post("statuses/update", {
-    status: tweet,
+    text: tweet,
   })
   .then((result) => {
     console.log("Tweeted successfully!");
