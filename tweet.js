@@ -18,7 +18,6 @@ user
 
 
 
-
 // const response = await user.getBearerToken();
 const client = new Twitter({
   subdomain: "api",
