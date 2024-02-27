@@ -6,7 +6,7 @@ const user = new Twitter({
   client_id: process.env.TWITTER_CLIENT_ID,
 });
 user
-  .get("oauth/token", {
+  .get("oauth/authorize", {
     response_type: 'code'
     redirect_uri: 'https://twitter.com/',
     scope: 'tweet.write',
