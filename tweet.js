@@ -7,7 +7,7 @@ const user = new Twitter({
 });
 user
   .get("oauth/token", {
-    response_type=code,
+    response_type='code',
     redirect_uri='https://twitter.com/',
     scope='tweet.write',
   })
