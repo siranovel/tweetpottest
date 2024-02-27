@@ -1,13 +1,16 @@
+const OAuth = require('oauth').OAuth;
 const Twitter = require('twitter-lite');
 const user = new Twitter({
   subdomain: "api",
-  version: "2",
-  extension: false,
-  consumer_key: process.env.TWITTER_CONSUMER_KEY,
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  version: "1.1,
+  client_id=process.env.TWITTER_CLIENT_ID,
 });
 user
-  .post("oauth/request_token")
+  .get("oauth/token", {
+    response_type=code,
+    redirect_uri='https://twitter.com/',
+    scope='tweet.write',
+  })
   .then((result) => {
     console.log(result);
   })
@@ -17,8 +20,10 @@ user
 
 
 
+
+
 // const response = await user.getBearerToken();
-const client = new Twitter({
+const app = new Twitter({
   subdomain: "api",
   version: "2",
   extension: false,
@@ -30,7 +35,7 @@ const client = new Twitter({
 
 const tweet = 'New commit pushed to ${process.env.GITHUB_REPOSITORY}!';
 
-client
+app
   .post("statuses/update", {
     status: tweet,
   })
