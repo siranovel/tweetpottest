@@ -2,7 +2,7 @@ const OAuth = require('oauth').OAuth;
 const Twitter = require('twitter-lite');
 const user = new Twitter({
   subdomain: "api",
-  version: "1.1,
+  version: "1.1",
   client_id=process.env.TWITTER_CLIENT_ID,
 });
 user
