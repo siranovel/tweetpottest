@@ -13,7 +13,7 @@ jobs:
     - name: tweet oauth
       run: |
         curl -X POST -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" \
-        -H "Authorization: Basic QUFBQUFBQUFBQUFBQUFBQUFBQUFBQzU1c0FFQUFBQUFydGVncllWbGtmUjJPTGtDbnZDNlJFVFdrZmslM0RvbFpNTkZ0S3RDeFI2NmtEYkZuRmpFaDBHYmNmRm1Hcm13VjdBWE9ndDBVZDRPaGEwaQ==" \
+        -H "Authorization: Basic AAAAAAAAAAAAAAAAAAAAAC55sAEAAAAArtegrYVlkfR2OLkCnvC6RETWkfk%3DolZMNFtKtCxR66kDbFnFjEh0GbcfFmGrmwV7AXOgt0Ud4Oha0i" \
         -d "grant_type=client_credentials" https://api.twitter.com/oauth2/toke
     - name: Tweet on Push
       env:
