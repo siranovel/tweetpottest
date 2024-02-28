@@ -15,7 +15,7 @@ jobs:
         TWITTER_BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
       run: |
         curl -X POST 'https://api.twitter.com/2/tweets' \
-        --header "Authorization: Bearer ${TWITTER_BEARER_TOKEN}" \
+        --header "Authorization: basic ${TWITTER_BEARER_TOKEN}" \
         -H 'Content-Type: application/json' \
         -d '{"test": "hello World!"}'
 
