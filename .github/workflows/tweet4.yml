@@ -1,0 +1,21 @@
+name: tweet bot 4
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  tweet:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Tweet on Push
+      env:
+        TWITTER_BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
+      run: |
+        curl -X POST 'https://api.twitter.com/2/tweets' \
+        --header "Authorization: Bearer ${TWITTER_BEARER_TOKEN}" \
+        -H 'Content-Type: application/json' \
+        -d '{"test": "hello World!"}'
+
