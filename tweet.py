@@ -9,7 +9,7 @@ ACCESS_KEY_SECRET = os.environ.get("TWITTER_ACCESS_TOKEN_SECRET")
 url_text = 'https://api.twitter.com/1.1/statuses/update'
 
 def main():
-    puts "tt"
+    print( "tt" )
     # OAuth1Sessionの認証処理
     twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_KEY_SECRET)
     twitter.post(url_text, params = {'status': 'New commit pushed'})
