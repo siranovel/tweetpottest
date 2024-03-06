@@ -11,7 +11,7 @@ url_text = 'https://api.twitter.com/2/statuses/update'
 def main():
     # OAuth1Sessionの認証処理
     twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET)
-    print twitter
+    print( twitter )
     res = twitter.post(url_text, params = {'status': 'New commit pushed'})
     print(res)
 
