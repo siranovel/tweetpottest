@@ -1,4 +1,4 @@
-name: tweet bot 4
+name: tweet bot 4(curl)
 
 on:
   push:
