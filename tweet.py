@@ -12,7 +12,8 @@ def main():
     print( "tt" )
     # OAuth1Sessionの認証処理
     twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_KEY_SECRET)
-    twitter.post(url_text, params = {'status': 'New commit pushed'})
+    res = twitter.post(url_text, params = {'status': 'New commit pushed'})
+    print(res)
 
 if __name__ == "__main__":
     main()
