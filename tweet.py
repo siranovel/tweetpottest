@@ -6,7 +6,7 @@ CONSUMER_SECRET = os.environ.get("TWITTER_CONSUMER_SECRET")
 ACCESS_KEY = os.environ.get("TWITTER_ACCESS_TOKEN")
 ACCESS_KEY_SECRET = os.environ.get("TWITTER_ACCESS_TOKEN_SECRET")
 
-url_text = 'https://api.twitter.com/2/statuses/update'
+url_text = 'https://api.twitter.com/1.1/statuses/update'
 
 def main():
     # OAuth1Sessionの認証処理
