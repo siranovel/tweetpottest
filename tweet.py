@@ -6,7 +6,7 @@ CONSUMER_SECRET = os.environ.get("TWITTER_CONSUMER_SECRET")
 ACCESS_KEY = os.environ.get("TWITTER_ACCESS_TOKEN")
 ACCESS_KEY_SECRET = os.environ.get("TWITTER_ACCESS_TOKEN_SECRET")
 
-request_token_url = 'https://api.twitter.com/1.1/oauth/request_token'
+request_token_url = 'https://api.twitter.com/oauth/request_token'
 url_text = 'https://api.twitter.com/1.1/statuses/update'
 tweet = 'New commit pushed!';
 
