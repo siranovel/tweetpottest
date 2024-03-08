@@ -16,7 +16,7 @@ def main():
     fetch_response = oauth.fetch_request_token(request_token_url)
     print(fetch_response)
     print( "4444444444444444444444")
-    res = twitter.post(url_text, params = {'status': tweet})
+    res = oauth.post(url_text, params = {'status': tweet})
     print(fetch_response)
 
 if __name__ == "__main__":
