@@ -13,7 +13,7 @@ tweet = 'New commit pushed!';
 def main():
     # OAuth1Sessionの認証処理
     oauth = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET)
-    fetch_response = oauth.fetch_request_token(equest_token_url)
+    fetch_response = oauth.fetch_request_token(request_token_url)
     print(fetch_response)
     res = twitter.post(url_text, params = {'status': tweet})
     print(fetch_response)
