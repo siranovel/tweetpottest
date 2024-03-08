@@ -1,18 +1,12 @@
-const OAuth = require('oauth').OAuth;
 const Twitter = require('twitter-lite');
-const user = new Twitter({
-  subdomain: "api",
-  version: "1.1",
-  client_id: process.env.TWITTER_CLIENT_ID,
+const client = new Twitter({
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
 });
-user
-  .get("oauth/authorize", {
-    response_type: 'code',
-    redirect_uri: 'https://twitter.com/',
-    scope: 'tweet.write',
-  })
+client
+  .getRequestToken()
   .then((result) => {
-    console.log(result);
+    console.log("getRequestToken");
   })
   .catch((error) => {
     console.error(error);
@@ -21,15 +15,15 @@ user
 
 
 
+
 // const response = await user.getBearerToken();
 const app = new Twitter({
   subdomain: "api",
-  version: "2",
-  extension: false,
+  version: "1.1",
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
   access_token_key: process.env.TWITTER_ACCESS_TOKEN,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+  access_token_secret: process.env.TWITTER_CCESS_TOKEN_SECRET,
 });
 
 const tweet = 'New commit pushed to ${process.env.GITHUB_REPOSITORY}!';
