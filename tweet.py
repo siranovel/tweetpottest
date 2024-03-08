@@ -7,7 +7,7 @@ ACCESS_KEY = os.environ.get("TWITTER_ACCESS_TOKEN")
 ACCESS_KEY_SECRET = os.environ.get("TWITTER_ACCESS_TOKEN_SECRET")
 
 request_token_url = 'https://api.twitter.com/oauth/request_token'
-url_text = 'https://api.twitter.com/1.1/statuses/update'
+url_text = 'https://api.twitter.com/1.1/statuses/update.json'
 tweet = 'New commit pushed!';
 
 def main():
