@@ -6,14 +6,17 @@ CONSUMER_SECRET = os.environ.get("TWITTER_CONSUMER_SECRET")
 ACCESS_KEY = os.environ.get("TWITTER_ACCESS_TOKEN")
 ACCESS_KEY_SECRET = os.environ.get("TWITTER_ACCESS_TOKEN_SECRET")
 
+request_token_url = 'https://api.twitter.com/1.1/oauth/request_token'
 url_text = 'https://api.twitter.com/1.1/statuses/update'
+tweet = 'New commit pushed!';
 
 def main():
     # OAuth1Sessionの認証処理
-    twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET)
-    print( twitter )
-    res = twitter.post(url_text, params = {'status': 'New commit pushed'})
-    print(res)
+    oauth = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET)
+    fetch_response = oauth.fetch_request_token(equest_token_url)
+    print(fetch_response)
+    res = twitter.post(url_text, params = {'status': tweet})
+    print(fetch_response)
 
 if __name__ == "__main__":
     main()
