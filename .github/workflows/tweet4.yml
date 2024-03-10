@@ -18,8 +18,5 @@ jobs:
         TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
       run: |
         curl -X POST \
-             --url 'https://api.twitter.com/1.1/statuses/update.json' \
-        --header "Authorization: OAuth oauth_consumer_key=${TWITTER_CONSUMER_KEY},oauth_consumer_secret=${TWITTER_CONSUMER_SECRET},oauth_token=${TWITTER_ACCESS_TOKEN},oauth_token_secret=${TWITTER_ACCESS_TOKEN_SECRET},oauth_signature_method='HMAC-SHA1',oauth_version='1.0'" \
-        -H 'Content-Type: application/json' \
-        -d '{"status": "hello World!"}'
-
+             --url 'https://api.twitter.com/1.1/statuses/update.json?status=hello' \
+        --header "Authorization: OAuth oauth_consumer_key=${TWITTER_CONSUMER_KEY},oauth_consumer_secret=${TWITTER_CONSUMER_SECRET},oauth_token=${TWITTER_ACCESS_TOKEN},oauth_token_secret=${TWITTER_ACCESS_TOKEN_SECRET},oauth_version='1.0'"
