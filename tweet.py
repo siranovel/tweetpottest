@@ -22,7 +22,7 @@ def main():
     print('Please go here and authorize,', authorization_url)
     print("aaaaaaaaaaaaaaaaaaaaa")
     twitter = OAuth1Session(CONSUMER_KEY,
-                            client_secret=CONSUMER_SECRET
+                            client_secret=CONSUMER_SECRET,
                             resource_owner_key=resource_owner_key,
                             resource_owner_secret=resource_owner_secret)
     res = twitter.post(url_text, params = {'status': tweet})
