@@ -23,6 +23,7 @@ def main():
     print( authorization_url)
     ridirect_response = authorization_url+"&response_type=code&scope="+scope
     oauth_response =  oauth.parse_authorization_response(ridirect_response)
+    print("ddddddddddddddddddd")
     print(oauth_response)
     print("aaaaaaaaaaaaaaaaaaaaa")
     res = oauth.post(url_text, params = {'status': tweet})
