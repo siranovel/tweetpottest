@@ -30,7 +30,7 @@ def main():
     print(oauth_response)
     print(type(oauth_response))
     print(oauth_response.headers) # レスポンスのヘッダー情報
-    print(oauth_response.json()) # レスポンスボディ情報
+    print(oauth_response.text) # レスポンスボディ情報
     print("aaaaaaaaaaaaaaaaaaaaa")
     res = oauth.post(url_text, params = {'status': tweet})
     print(res)
