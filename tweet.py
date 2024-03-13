@@ -20,7 +20,7 @@ def main():
     resource_owner_secret = fetch_response.get('oauth_token_secret')
     authorization_url = oauth.authorization_url(
         base_authorization_url, 
-        response_type=code,
+        response_type='code',
         scope='tweet.write,tweet.read')
     print(authorization_url)
     ridirect_response = oauth.parse_authorization_response(authorization_url)
