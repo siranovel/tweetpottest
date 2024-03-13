@@ -15,6 +15,7 @@ tweet = 'New commit pushed!'
 def main():
     # OAuth1Sessionの認証処理
     oauth = OAuth1Session(CONSUMER_KEY, client_secret=CONSUMER_SECRET, callback_uri='https://twitter.com/')
+    print(oauth)
     fetch_response = oauth.fetch_request_token(request_token_url)
     resource_owner_key = fetch_response.get('oauth_token')
     resource_owner_secret = fetch_response.get('oauth_token_secret')
