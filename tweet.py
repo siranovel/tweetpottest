@@ -14,15 +14,15 @@ url_text = 'https://api.twitter.com/1.1/statuses/update.json'
 tweet = 'New commit pushed!'
 def main():
     # OAuth1Sessionの認証処理
-    oauth = OAuth1Session(CONSUMER_KEY, client_secret=CONSUMER_SECRET, callback_uri='https://twitter.com/')
-    print(oauth)
+    oauth = OAuth1Session(CONSUMER_KEY, client_secret=CONSUMER_SECRET)
     fetch_response = oauth.fetch_request_token(request_token_url)
     resource_owner_key = fetch_response.get('oauth_token')
     resource_owner_secret = fetch_response.get('oauth_token_secret')
     authorization_url = oauth.authorization_url(
         base_authorization_url, 
         response_type='code',
-        scope='tweet.write,tweet.read')
+        scope='tweet.write,tweet.read'
+        callback_uri='https://twitter.com/')
     print(authorization_url)
     ridirect_response = oauth.parse_authorization_response(authorization_url)
     print(ridirect_response)
