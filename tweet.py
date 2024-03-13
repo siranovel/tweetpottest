@@ -21,7 +21,7 @@ def main():
     authorization_url = oauth.authorization_url(
         base_authorization_url, 
         response_type='code',
-        scope='tweet.write,tweet.read'
+        scope='tweet.write,tweet.read',
         callback_uri='https://twitter.com/')
     print(authorization_url)
     ridirect_response = oauth.parse_authorization_response(authorization_url)
