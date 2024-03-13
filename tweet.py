@@ -22,7 +22,7 @@ def main():
         base_authorization_url, 
         response_type='code',
         scope='tweet.write,tweet.read',
-        callback_uri='https://twitter.com')
+        callback_uri='https://twitter.com/')
     print(authorization_url)
     ridirect_response = oauth.parse_authorization_response(authorization_url)
     print(ridirect_response)
