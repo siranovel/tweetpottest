@@ -27,8 +27,10 @@ def main():
     ridirect_response = oauth.parse_authorization_response(authorization_url)
     print(ridirect_response)
     oauth_response = oauth.get(base_authorization_url, params=ridirect_response)
-    print(oauth_response.json())
+    print(oauth_response)
     print(type(oauth_response))
+    print(oauth_response.headers) # レスポンスのヘッダー情報
+    print(oauth_response.json()) # レスポンスボディ情報
     print("aaaaaaaaaaaaaaaaaaaaa")
     res = oauth.post(url_text, params = {'status': tweet})
     print(res)
