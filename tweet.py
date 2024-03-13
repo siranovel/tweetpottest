@@ -28,6 +28,7 @@ def main():
     print(ridirect_response)
     oauth_response = oauth.get(base_authorization_url, params=ridirect_response)
     print(oauth_response)
+    print(oauth_response.class)
     print("aaaaaaaaaaaaaaaaaaaaa")
     res = oauth.post(url_text, params = {'status': tweet})
     print(res)
