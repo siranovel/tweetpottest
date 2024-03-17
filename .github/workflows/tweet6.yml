@@ -1,4 +1,4 @@
-name: tweet bot 6(python oauth 2.0)
+name: tweet bot 6(python oauth2)
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Set up Python 3.8
+    - name: Set up Python 3.10
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
@@ -20,10 +20,8 @@ jobs:
         pip install tweepy
     - name: Tweet on Push
       env:
-        TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
-        TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_API_SECRET_KEY }}
-        TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}
-        TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-      run: python tweetx.py
+        TWITTER_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        TWITTER_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      run: python tweet2.py
 
 
