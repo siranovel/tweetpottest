@@ -1,4 +1,4 @@
-name: tweet bot x(python tweepy)
+name: tweet bot 6(python oauth 2.0)
 
 on:
   push:
