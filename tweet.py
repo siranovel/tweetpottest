@@ -1,4 +1,4 @@
-from requests_oauthlib import OAuth1
+from requests_oauthlib import OAuth1, OAuth1Session
 import requests
 import os
 
@@ -15,12 +15,13 @@ tweet = 'New commit pushed!'
 headers={'Content-Type': 'application/json'}
 def main():
     # OAuth1
-    basic = OAuth1(CONSUMER_KEY,
+    
+    oauth = OAuth1(CONSUMER_KEY,
                    client_secret=CONSUMER_SECRET,
                    resource_owner_key=ACCESS_KEY,
                    resource_owner_secret=ACCESS_KEY_SECRET)
     # step 1
-    res = requests.post(url_text, params = {'status': tweet}, auth=basic)
+    res = requests.post(url_text, params = {'status': tweet}, auth=oauth)
     print(res)
 
 if __name__ == "__main__":
