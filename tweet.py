@@ -1,5 +1,5 @@
-from requests_oauthlib import OAuth1Session
-from requests.auth     import HTTPBasicAuth
+from requests_oauthlib import OAuth1
+import requests
 import os
 
 CONSUMER_KEY = os.environ.get("TWITTER_CONSUMER_KEY")
@@ -14,11 +14,13 @@ url_text = 'https://api.twitter.com/1.1/statuses/update.json'
 tweet = 'New commit pushed!'
 headers={'Content-Type': 'application/json'}
 def main():
-    # OAuth1Sessionの認証処理
-    basic = HTTPBasicAuth(CONSUMER_KEY, CONSUMER_SECRET)
+    # OAuth1
+    basic = OAuth1(CONSUMER_KEY,
+                   client_secret=CONSUMER_SECRET,
+                   resource_owner_key=ACCESS_KEY,
+                   resource_owner_secret=ACCESS_KEY_SECRET)
     # step 1
-    twitter = OAuth1Session(CONSUMER_KEY, client_secret=CONSUMER_SECRET)
-    res = twitter.post(url_text, auth=basic, params = {'status': tweet})
+    res = requests.post(url_text, params = {'status': tweet}, auth=basic)
     print(res)
 
 if __name__ == "__main__":
