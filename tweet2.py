@@ -17,7 +17,7 @@ def main():
     print(text)
     client_id64 = base64.b64encode(text.encode())
     print(client_id64)
-    basic = HTTPBasicAuth(CONSUMER_KEY, CONSUMER_SECRET)
+    basic = HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET)
     # step 1
     scope = 'tweet.read tweet.write offline.access'
     # step 2
