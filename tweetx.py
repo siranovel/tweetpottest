@@ -11,9 +11,9 @@ client = tweepy.Client(
     consumer_key = CONSUMER_KEY,
     consumer_secret = CONSUMER_SECRET,
     access_token = ACCESS_KEY,
-    access_token_secret = ACCESS_KEY_SECRET
-)
+    access_token_secret = ACCESS_KEY_SECRET)
 
-# ツイートする
-tweet = 'New commit pushed! at tweepy';
+# ツィートする
+tweet = 'New commit pushed! num4anova'
 client.create_tweet(text=tweet)
+
