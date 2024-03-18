@@ -21,7 +21,7 @@ def main():
     # step 1
     scope = 'tweet.read tweet.write offline.access'
     # step 2
-    oauth = OAuth2Session(CLIENT_ID, client_secret=CLIENT_SECRET)
+    oauth = OAuth2Session(CLIENT_ID)
     authorization_url = oauth.authorization_url(
         base_authorization_url, 
         response_type='code',
