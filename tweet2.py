@@ -22,15 +22,14 @@ def main():
     scope = 'tweet.read tweet.write offline.access'
     # step 2
     oauth = OAuth2Session(CLIENT_ID)
-    authorization_url = oauth.authorization_url(
+    authorization_url, state = oauth.authorization_url(
         base_authorization_url, 
         redirect_url = 'https://twitter.com/',
         code_challenge='challenge',
         code_challenge_method='plain')
     print(authorization_url)
-    ridirect_response = oauth.parse_authorization_response(authorization_url)
-    print(ridirect_response)
-    fetch_response = oauth.fetch_request_token(base_authorization_url, params=ridirect_response)
+    print(state)
+    fetch_response = oauth.fetch_request_token(authorization_url)
     print(fetch_response)
     # step 3
 
