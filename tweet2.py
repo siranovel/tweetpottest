@@ -27,7 +27,6 @@ def main():
         response_type='code',
         client_id = CLIENT_ID,
         redirect_url = 'https://twitter.com/',
-        scope= scope,
         state='state',
         code_challenge='challenge',
         code_challenge_method='plain')
