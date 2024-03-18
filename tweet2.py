@@ -25,7 +25,6 @@ def main():
     authorization_url = oauth.authorization_url(
         base_authorization_url, 
         redirect_url = 'https://twitter.com/',
-        state='state',
         code_challenge='challenge',
         code_challenge_method='plain')
     print(authorization_url)
