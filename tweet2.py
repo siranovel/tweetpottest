@@ -24,7 +24,6 @@ def main():
     oauth = OAuth2Session(CLIENT_ID)
     authorization_url = oauth.authorization_url(
         base_authorization_url, 
-        response_type='code',
         client_id = CLIENT_ID,
         redirect_url = 'https://twitter.com/',
         state='state',
