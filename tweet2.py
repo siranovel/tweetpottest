@@ -30,7 +30,7 @@ def main():
                           client_secret=CLIENT_SECRET
                             )
     # step 2
-    res = requests.post(access_token_url, 
+    res = oauth.post(access_token_url, 
                         params={
                             "grant_type": "client_credentials"
                         },
