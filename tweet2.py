@@ -1,37 +1,42 @@
-from requests_oauthlib import OAuth2Session
 from requests.auth     import HTTPBasicAuth
+from requests_oauthlib import OAuth1Session
+import requests
 import os
+import hashlib
 import base64
+import urllib.parse as parse
 
 CLIENT_ID = os.environ.get("TWITTER_CLIENT_ID")
 CLIENT_SECRET = os.environ.get("TWITTER_CLIENT_SECRET")
+redirect_uri = 'https://twitter.com/'
+scopes = ["tweet.read", "tweet.write",
+          "offline.access"]
+code_verifier = hashlib.sha256(os.urandom(128)).hexdigest()
+code_challenge_sha256 = hashlib.sha256(code_verifier.encode()).digest()
+code_challenge = base64.urlsafe_b64encode(code_challenge_sha256).decode().rstrip("=")
+
+
 
 base_authorization_url = 'https://api.twitter.com/i/oauth2/authorize'
 access_token_url = 'https://api.twitter.com/oauth2/token'
-url_text = 'https://api.twitter.com/1.1/statuses/update.json'
-tweet = 'New commit pushed!'
-headers={'Content-Type': 'application/json'}
+url_text = 'https://api.twitter.com/2/tweets'
+tweet = 'New commit pushed! (oauth 2.0)'
+headers={'Content-Type': 'application/x-www'}
 def main():
     # OAuth2Sessionの認証処理
-    text = CLIENT_ID + ':' + CLIENT_SECRET
-    print(text)
-    client_id64 = base64.b64encode(text.encode())
-    print(client_id64)
-    basic = HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET)
     # step 1
-    scope = 'tweet.read tweet.write offline.access'
+    basic = HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET)
+    oauth = OAuth1Session(CLIENT_ID, 
+                          client_secret=CLIENT_SECRET
+                            )
     # step 2
-    oauth = OAuth2Session(CLIENT_ID)
-    authorization_url, state = oauth.authorization_url(
-        base_authorization_url, 
-        redirect_url = 'https://twitter.com/',
-        code_challenge='challenge',
-        code_challenge_method='plain')
-    print(authorization_url)
-    print(state)
-    fetch_response = oauth.fetch_request_token(authorization_url)
-    print(fetch_response)
-    # step 3
+    res = requests.post(access_token_url, 
+                        params={
+                            "grant_type": "client_credentials"
+                        },
+                        auth=basic)
+    print(res)
+    print(res.text)
 
 if __name__ == "__main__":
     main()
