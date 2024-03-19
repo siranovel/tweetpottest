@@ -20,7 +20,7 @@ def main():
                           client_secret=CONSUMER_SECRET
                             )
     # step 1
-    oauth_response = oauth.fetch_access_token(access_token_url,  verifier=false, auth=basic)
+    oauth_response = oauth.fetch_access_token(access_token_url,  verifier=False, auth=basic)
     print(oauth_response)
     res = oauth.post(url_text, params = {'status': tweet})
     print(res)
