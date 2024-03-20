@@ -9,7 +9,7 @@ import urllib.parse as parse
 CLIENT_ID = os.environ.get("TWITTER_CLIENT_ID")
 CLIENT_SECRET = os.environ.get("TWITTER_CLIENT_SECRET")
 redirect_uri = 'https://twitter.com/'
-scopes = ["tweet.read", "tweet.write",
+scopes = ["tweet.read", "tweet.write", "user.read",
           "offline.access"]
 code_verifier = hashlib.sha256(os.urandom(128)).hexdigest()
 code_challenge_sha256 = hashlib.sha256(code_verifier.encode()).digest()
@@ -17,7 +17,7 @@ code_challenge = base64.urlsafe_b64encode(code_challenge_sha256).decode().rstrip
 
 
 
-base_authorization_url = 'https://api.twitter.com/i/oauth2/authorize'
+auth_url = 'https://api.twitter.com/i/oauth2/authorize'
 access_token_url = 'https://api.twitter.com/oauth2/token'
 url_text = 'https://api.twitter.com/2/tweets'
 tweet = 'New commit pushed! (oauth 2.0)'
@@ -30,7 +30,18 @@ def main():
                           client_secret=CLIENT_SECRET
                             )
     # step 2
-    res = oauth.post(access_token_url, 
+    token_response = oauth.get(auth_url,
+                        params =  {
+                            "respose_type": 'code',
+                            "client_id": CLIENT_ID,
+                            "redirect_url": 'https://twitter.com/",
+                            "scope": parse.quote(" ".join(scopes))
+                        },
+                        auth=basic)
+    print(res)
+    print(res.text)
+
+    res = requests.post(access_token_url, 
                         params={
                             "grant_type": "client_credentials"
                         },
