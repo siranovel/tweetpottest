@@ -21,9 +21,14 @@ auth_url = 'https://api.twitter.com/i/oauth2/authorize'
 access_token_url = 'https://api.twitter.com/oauth2/token'
 url_text = 'https://api.twitter.com/2/tweets'
 tweet = 'New commit pushed! (oauth 2.0)'
-headers={'Content-Type': 'application/x-www'}
+
 def main():
     # OAuth2Sessionの認証処理
+    text   CLIENT_ID + ":" + CLIENT_SECRET
+    headers={ "Authorization": "Bearer "+base64.b64encode(text.encode()),
+              'Content-Type': 'application/x-www'}
+   
+          
     # step 1
     basic = HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET)
     oauth = OAuth1Session(CLIENT_ID, 
@@ -31,13 +36,14 @@ def main():
                             )
     # step 2
     token_response = oauth.get(auth_url,
+                        headers=headers,
                         params =  {
                             "respose_type": 'code',
                             "client_id": CLIENT_ID,
                             "redirect_url": 'https://twitter.com/',
                             "scope": parse.quote(" ".join(scopes))
-                        },
-                        auth=basic)
+                        } 
+                              )
     print(token_response)
     print(token_response.text)
 
