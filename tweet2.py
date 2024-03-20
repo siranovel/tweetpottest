@@ -24,7 +24,7 @@ tweet = 'New commit pushed! (oauth 2.0)'
 
 def main():
     # OAuth2Sessionの認証処理
-    text   CLIENT_ID + ":" + CLIENT_SECRET
+    text =  CLIENT_ID + ":" + CLIENT_SECRET
     headers={ "Authorization": "Bearer "+base64.b64encode(text.encode()),
               'Content-Type': 'application/x-www'}
    
