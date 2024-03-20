@@ -38,8 +38,8 @@ def main():
                             "scope": parse.quote(" ".join(scopes))
                         },
                         auth=basic)
-    print(res)
-    print(res.text)
+    print(token_response)
+    print(token_response.text)
 
     res = requests.post(access_token_url, 
                         params={
