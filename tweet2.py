@@ -35,7 +35,7 @@ def main():
                           client_secret=CLIENT_SECRET
                             )
     # step 2
-    token_response = oauth.get(auth_url,
+    token_response = requests.get(auth_url,
                         headers=headers,
                         params =  {
                             "respose_type": 'code',
