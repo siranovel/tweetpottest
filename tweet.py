@@ -29,7 +29,8 @@ def main():
                         })
     print(oauth_response)
     print(oauth_response.text)
-    res = oauth.post(url_text, params = {'status': tweet})
+    print(type(oauth_response))
+    res = requests.post(url_text, params = {'text': tweet})
     print(res)
 
 if __name__ == "__main__":
