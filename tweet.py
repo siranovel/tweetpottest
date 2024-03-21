@@ -2,6 +2,7 @@ from requests.auth     import HTTPBasicAuth
 from requests_oauthlib import OAuth1Session
 import requests
 import os
+import base64
 
 CONSUMER_KEY = os.environ.get("TWITTER_CONSUMER_KEY")
 CONSUMER_SECRET = os.environ.get("TWITTER_CONSUMER_SECRET")
