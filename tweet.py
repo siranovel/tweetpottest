@@ -26,9 +26,8 @@ def main():
                         headers = headers,
                         params={
                             "grant_type": "client_credentials"
-                        })
+                        }).json()
     print(oauth_response)
-    print(oauth_response.json())
     print(type(oauth_response))
     res = requests.post(url_text, params = {'text': tweet})
     print(res)
