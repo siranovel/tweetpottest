@@ -35,6 +35,7 @@ def main():
                         headers = tweet_headers,
                         params = {'status': tweet})
     print(res)
+    print(res.text)
 
 if __name__ == "__main__":
     main()
