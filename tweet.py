@@ -13,23 +13,27 @@ request_token_url = 'https://api.twitter.com/oauth/request_token'
 base_authorization_url = 'https://api.twitter.com/oauth/authorize'
 token_url = 'https://api.twitter.com/oauth2/token'
 url_text = 'https://api.twitter.com/2/tweets'
-tweet = 'New commit pushed! (oauth 1.0a)'
-headers={'Content-Type': 'application/json'}
+tweet = 'New commit pushed! (twitter v2 oauth 1.0a)'
 def main():
     # OAuth1
     # step 1
     text = CONSUMER_KEY + ":" + CONSUMER_SECRET
-    headers={
+    token_headers={
         'Authorization': 'Basic ' + base64.b64encode(text.encode()).decode()
     }
     oauth_response = requests.post(token_url, 
-                        headers = headers,
+                        headers = token_headers,
                         params={
                             "grant_type": "client_credentials"
                         }).json()
     print(oauth_response)
-    print(type(oauth_response))
-    res = requests.post(url_text, params = {'text': tweet})
+    print(oauth_response['access_token'])
+    tweet_headers={
+        'Authorization': 'Bearer ' + oauth_response['access_token']
+    }
+    res = requests.post(url_text, 
+                        headers = tweet_headers,
+                        params = {'status': tweet})
     print(res)
 
 if __name__ == "__main__":
