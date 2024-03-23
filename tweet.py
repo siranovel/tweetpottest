@@ -40,7 +40,7 @@ def main():
                         }).json()
     print(token_response['access_token'])
     tweet_headers={
-        'Authorization': 'Bearer ' + oauth_response['access_token']
+        'Authorization': 'Bearer ' + token_response['access_token']
     }
     res = requests.post(url_text, 
                         headers = tweet_headers,
