@@ -38,7 +38,6 @@ def main():
                         params={
                             "grant_type": "client_credentials"
                         }).json()
-    print(token_response['access_token'])
     tweet_headers={
         'Authorization': 'Bearer ' + token_response['access_token']
     }
@@ -47,6 +46,7 @@ def main():
                         params = {'status': tweet})
     print(res)
     print(res.text)
+
 
 if __name__ == "__main__":
     main()
