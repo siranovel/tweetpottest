@@ -43,7 +43,7 @@ def main():
     print(token_response)
     print(token_response.text)
 
-    res = requests.post(access_token_url, 
+    res = requests.post(token_url, 
                         params={
                             "grant_type": "client_credentials"
                         },
