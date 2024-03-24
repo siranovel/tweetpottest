@@ -22,6 +22,7 @@ token_url = 'https://api.twitter.com/2/oauth2/token'
 url_text = 'https://api.twitter.com/2/tweets'
 tweet = 'New commit pushed! (oauth 2.0)'
 headers={'Content-Type': 'application/x-www'}
+
 def main():
     print(REPO)
     # OAuth2Sessionの認証処理
