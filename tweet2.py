@@ -8,7 +8,7 @@ import urllib.parse as parse
 
 CLIENT_ID = os.environ.get("TWITTER_CLIENT_ID")
 CLIENT_SECRET = os.environ.get("TWITTER_CLIENT_SECRET")
-REPO = os.environ.get("REPOSITORY_NAME")
+text = os.environ.get("text")
 redirect_uri = 'https://twitter.com/'
 scopes = ["tweet.read", "tweet.write", "user.read",
           "offline.access"]
@@ -24,7 +24,7 @@ tweet = 'New commit pushed! (oauth 2.0)'
 headers={'Content-Type': 'application/x-www'}
 
 def main():
-    print(REPO)
+    print(text)
     # OAuth2Sessionの認証処理
     # step 1
     basic = HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET)
