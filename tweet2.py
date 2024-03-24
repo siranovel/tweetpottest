@@ -16,6 +16,7 @@ code_verifier = hashlib.sha256(os.urandom(128)).hexdigest()
 code_challenge_sha256 = hashlib.sha256(code_verifier.encode()).digest()
 code_challenge = base64.urlsafe_b64encode(code_challenge_sha256).decode().rstrip("=")
 
+request_token_url = 'https://api.twitter.com/oauth/request_token'
 auth_url = 'https://api.twitter.com/i/oauth2/authorize'
 token_url = 'https://api.twitter.com/2/oauth2/token'
 url_text = 'https://api.twitter.com/2/tweets'
@@ -30,7 +31,7 @@ def main():
                           token=CLIENT_SECRET
                             )
     # step 2
-    token_response = oauth.get(auth_url,
+    token_response = requests.get(request_token_url,
                         params =  {
                             "respose_type": 'code',
                             "client_id": CLIENT_ID,
