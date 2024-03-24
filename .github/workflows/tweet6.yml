@@ -20,7 +20,7 @@ jobs:
         pip install tweepy
     - name: Tweet on Push
       env:
-        text: "hello ${{ GITHUB_REPOSITORY }}"
+        text: "hello ${GITHUB_REPOSITORY} "
         TWITTER_CLIENT_ID: ${{ secrets.CLIENT_ID }}
         TWITTER_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
       run: python tweet2.py
