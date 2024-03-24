@@ -34,7 +34,7 @@ def main():
                         params =  {
                             "respose_type": 'code',
                             "client_id": CLIENT_ID,
-                            "redirect_url": 'https://twitter.com/",
+                            "redirect_url": 'https://twitter.com/',
                             "scope": parse.quote(" ".join(scopes))
                         },
                         auth=basic)
