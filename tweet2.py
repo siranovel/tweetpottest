@@ -31,7 +31,8 @@ def main():
         "oauth_consumer_secret": CLIENT_SECRET,
         "oauth_version": "2.0"}
     req_response = ses.post(request_token_url,
-                        headers = token_headers)                        )
+                        headers = ",".join(token_headers)
+                           )
     print(req_response)
     print(req_response.text)
     # step 2
