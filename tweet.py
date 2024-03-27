@@ -12,7 +12,7 @@ ACCESS_KEY_SECRET = os.environ.get("TWITTER_ACCESS_TOKEN_SECRET")
 request_token_url = 'https://api.twitter.com/oauth/request_token'
 base_authorization_url = 'https://api.twitter.com/oauth/authorize'
 token_url = 'https://api.twitter.com/oauth2/token'
-url_text = 'https://api.twitter.com/1.1/statuses/update.json'
+url_text = 'https://api.twitter.com/2/tweet'
 tweet = 'New commit pushed! (twitter v2 oauth 1.0a)'
 
 def createHeaders(consumer_key, consumer_secret, access_token, access_token_secret):
@@ -39,12 +39,13 @@ def main():
                         params={
                             "grant_type": "client_credentials"
                         }).json()
+    print(token_response)
     tweet_headers={
         'Authorization': 'Bearer ' + token_response['access_token']
     }
     res = ses.post(url_text, 
                         headers = tweet_headers,
-                        params = {'status': tweet})
+                        params = {'text': tweet})
     print(res)
     print(res.text)
 
