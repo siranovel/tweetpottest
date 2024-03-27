@@ -1,5 +1,5 @@
 from requests.auth     import HTTPBasicAuth
-from requests_oauthlib import OAuth2Session
+from requests_oauthlib import OAuth1Session
 import requests
 import os
 import hashlib
@@ -8,7 +8,6 @@ import urllib.parse as parse
 
 CLIENT_ID = os.environ.get("TWITTER_CLIENT_ID")
 CLIENT_SECRET = os.environ.get("TWITTER_CLIENT_SECRET")
-text = os.environ.get("text")
 redirect_uri = 'https://twitter.com/'
 scopes = ["tweet.read", "tweet.write", "user.read",
           "offline.access"]
@@ -22,35 +21,21 @@ token_url = 'https://api.twitter.com/2/oauth2/token'
 url_text = 'https://api.twitter.com/2/tweets'
 tweet = 'New commit pushed! (oauth 2.0)'
 headers={'Content-Type': 'application/x-www'}
-
 def main():
-    print(text)
     # OAuth2Sessionの認証処理
+    ses = requests.Session()
     # step 1
-    basic = HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET)
-    oauth = OAuth2Session(client_id=CLIENT_ID, 
-                          token=CLIENT_SECRET
-                            )
+    token_headers = {
+        "oauth_callback": "oob",
+        "oauth_consumer_key": CLIENT_ID,
+        "oauth_consumer_secret": CLIENT_SECRET,
+        "oauth_version": "2.0"}
+    req_response = ses.post(request_token_url,
+                        headers = ",".join(token_headers)
+                        )
+    print(req_response)
+    print(req_response.text)
     # step 2
-    token_response = requests.get(request_token_url,
-                        params =  {
-                            "respose_type": 'code',
-                            "client_id": CLIENT_ID,
-                            "redirect_url": 'https://twitter.com/',
-                            "scope": parse.quote(" ".join(scopes))
-                        },
-                        auth=basic)
-    print(token_response)
-    print(token_response.text)
-
-    res = requests.post(token_url, 
-                        params={
-                            "grant_type": "client_credentials"
-                        },
-                        auth=basic)
-    print(res)
-    print(res.text)
 
 if __name__ == "__main__":
     main()
-
