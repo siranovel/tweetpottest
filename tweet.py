@@ -28,12 +28,13 @@ def createHeaders(consumer_key, consumer_secret, access_token, access_token_secr
 
 def main():
     # OAuth1
+    ses = requests.session()
     # step 1
     text = CONSUMER_KEY + ":" + CONSUMER_SECRET
     token_headers={
         'Authorization': 'Basic ' + base64.b64encode(text.encode()).decode()
     }
-    token_response = requests.post(token_url, 
+    token_response = ses.post(token_url, 
                         headers = token_headers,
                         params={
                             "grant_type": "client_credentials"
@@ -41,7 +42,7 @@ def main():
     tweet_headers={
         'Authorization': 'Bearer ' + token_response['access_token']
     }
-    res = requests.post(url_text, 
+    res = ses.post(url_text, 
                         headers = tweet_headers,
                         params = {'status': tweet})
     print(res)
