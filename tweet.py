@@ -12,7 +12,7 @@ ACCESS_KEY_SECRET = os.environ.get("TWITTER_ACCESS_TOKEN_SECRET")
 request_token_url = 'https://api.twitter.com/oauth/request_token'
 base_authorization_url = 'https://api.twitter.com/oauth/authorize'
 token_url = 'https://api.twitter.com/oauth2/token'
-url_text = 'https://api.twitter.com/2/tweet'
+url_text = 'https://api.twitter.com/2/tweets'
 tweet = 'New commit pushed! (twitter v2 oauth 1.0a)'
 
 def createHeaders(consumer_key, consumer_secret, access_token, access_token_secret):
