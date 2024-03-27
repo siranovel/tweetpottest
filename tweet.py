@@ -39,7 +39,6 @@ def main():
                         params={
                             "grant_type": "client_credentials"
                         }).json()
-    print(token_response)
     tweet_headers={
         'Authorization': 'Bearer ' + token_response['access_token']
     }
