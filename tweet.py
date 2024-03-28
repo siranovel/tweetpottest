@@ -29,7 +29,7 @@ def createHeaders(consumer_key, consumer_secret, access_token, access_token_secr
 def main():
     # OAuth1
     # step 1
-    req_response = requests.post(token_url, 
+    req_response = requests.post(request_token_url, 
                      params={
                          "oauth_callback": "oob",
                          "x_auth_access_type": "write"
