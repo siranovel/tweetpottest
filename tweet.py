@@ -19,9 +19,7 @@ def _conv_dict(dict_: dict):
 def _create_signature():
     clent_id64 = CONSUMER_KEY + ":" + CONSUMER_SECRET
     token_id64 = ACCESS_KEY + ":" + ACCESS_KEY_SECRET
-    base_string = clent_id64
-                + '&'
-                + token_id64
+    base_string = clent_id64 + char(38) + token_id64
     return base64.b64encode(base_string.encode()).decode()
 
 def _create_authorization_params():
