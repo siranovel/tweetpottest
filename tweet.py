@@ -1,5 +1,6 @@
 import os
 import urllib.parse as parse
+import base64
 import requests
 
 CONSUMER_KEY = os.environ.get("TWITTER_CONSUMER_KEY")
