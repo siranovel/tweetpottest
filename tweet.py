@@ -44,7 +44,7 @@ def _create_authorization_header():
     return {'Authorization': auth_headr_val}
 
 def main():
-    oauth = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_KEY_SECRET)
+    oauth = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY)
     token_res = oauth.post(request_token_url, params={'oauth_callback': 'oob'})
     print(token_res.text)
     ctx_headers = _create_authorization_header()
