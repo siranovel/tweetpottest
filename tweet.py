@@ -1,3 +1,5 @@
+from requests_oauthlib import OAuth1Session
+
 import os
 import urllib.parse as parse
 import base64
@@ -42,7 +44,11 @@ def _create_authorization_header():
     return {'Authorization': auth_headr_val}
 
 def main():
+    oauth = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_KEY_SECRET)
+    token_res = oauth.post(request_token_url)
+    print(token_res)
     ctx_headers = _create_authorization_header()
+    print(ctx_headers)
     res = requests.post(request_token_url,
                         headers = ctx_headers)
     print(res)
