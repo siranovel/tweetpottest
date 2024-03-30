@@ -9,6 +9,7 @@ ACCESS_KEY = os.environ.get("TWITTER_ACCESS_TOKEN")
 ACCESS_KEY_SECRET = os.environ.get("TWITTER_ACCESS_TOKEN_SECRET")
 SIGNATURE_METHOD = 'PLAIN'
 tweet = 'New commit pushed! (twitter v2 oauth 1.0a)'
+request_token_url = 'https://api.twitter.com/oauth/request_token'
 url_text = 'https://api.twitter.com/2/tweets'
 
 def _conv_dict(dict_: dict):
@@ -20,9 +21,7 @@ def _conv_dict(dict_: dict):
 def _create_signature():
     clent_id64 = CONSUMER_KEY + ":" + CONSUMER_SECRET
     token_id64 = ACCESS_KEY + ":" + ACCESS_KEY_SECRET
-    base_string = clent_id64 
-　　　　　　　　　　+ chr(38) 
-　　　　　　　　　　+ token_id64
+    base_string = clent_id64 + chr(38) + token_id64
     return base64.b64encode(base_string.encode()).decode()
 
 def _create_authorization_params():
@@ -44,10 +43,8 @@ def _create_authorization_header():
 
 def main():
     ctx_headers = _create_authorization_header()
-    res = requests.post(url_text,
-                        headers = ctx_headers,
-                        params = {'text': tweet}
-    )
+    res = requests.post(request_token_url,
+                        headers = ctx_headers)
     print(res)
     print(res.text)
                         
