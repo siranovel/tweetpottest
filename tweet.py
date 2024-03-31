@@ -29,7 +29,7 @@ def main():
         'Authorization': 'Basic ' + base64.b64encode(text.encode()).decode()
     }
     oauth_response = twitter.post(token_url, 
-                        auth = token_headers,
+                        header  = token_headers,
                         params={
                             "grant_type": "client_credentials"
                         })
