@@ -15,6 +15,7 @@ url_text = 'https://api.twitter.com/2/tweets'
 
 
 def main():
+    ses = requests.Session()
     twitter = OAuth1Session(CONSUMER_KEY, 
                             client_secret = CONSUMER_SECRET,
                             resource_owner_key=ACCESS_KEY,
