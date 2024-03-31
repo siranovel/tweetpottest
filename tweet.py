@@ -1,6 +1,7 @@
 from requests_oauthlib import OAuth1Session
 import os
 import base64
+import requests
 
 CONSUMER_KEY = os.environ.get("TWITTER_CONSUMER_KEY")
 CONSUMER_SECRET = os.environ.get("TWITTER_CONSUMER_SECRET")
@@ -28,7 +29,7 @@ def main():
     token_headers={
         'Authorization': 'Basic ' + base64.b64encode(text.encode()).decode()
     }
-    oauth_response = twitter.post(token_url, 
+    oauth_response = requests.post(token_url, 
                         header  = token_headers,
                         params={
                             "grant_type": "client_credentials"
