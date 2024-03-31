@@ -30,12 +30,13 @@ def main():
     token_headers={
         'Authorization': 'Basic ' + base64.b64encode(text.encode()).decode()
     }
-    oauth_response = requests.post(auth_url, 
-                        header  = token_headers,
+    oauth_response = ses.post(token_url, 
+                        headers = token_headers,
                         params={
                             "grant_type": "client_credentials"
-                        })
+                        }).json()
     print(oauth_response)
+    print(oauth_response['access_token'])
     #
     res = twitter.post(url_text, params={"text": url_text})
     print(res)
