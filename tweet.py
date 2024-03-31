@@ -9,6 +9,7 @@ ACCESS_KEY = os.environ.get("TWITTER_ACCESS_TOKEN")
 ACCESS_KEY_SECRET = os.environ.get("TWITTER_ACCESS_TOKEN_SECRET")
 tweet = 'New commit pushed! (twitter v2 oauth 1.0a)'
 request_token_url = 'https://api.twitter.com/oauth/request_token'
+auth_url = 'https://api.twitter.com/i/oauth2/token'
 token_url = 'https://api.twitter.com/oauth2/token'
 url_text = 'https://api.twitter.com/2/tweets'
 
@@ -29,7 +30,7 @@ def main():
     token_headers={
         'Authorization': 'Basic ' + base64.b64encode(text.encode()).decode()
     }
-    oauth_response = requests.post(token_url, 
+    oauth_response = requests.post(auth_url, 
                         header  = token_headers,
                         params={
                             "grant_type": "client_credentials"
