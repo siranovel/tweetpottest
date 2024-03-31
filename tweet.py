@@ -20,7 +20,7 @@ def main():
     #
     fetch_response = twitter.fetch_request_token(request_token_url,
                             params={"x_auth_access_type": 'write'})
-    print(token_response)
+    print(fetch_response)
     resource_owner_key = fetch_response.get('oauth_token')
     resource_owner_secret = fetch_response.get('oauth_token_secret')
     #
