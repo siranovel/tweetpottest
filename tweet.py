@@ -19,7 +19,7 @@ def main():
     token_headers={
         'Authorization': 'Basic ' + base64.b64encode(text.encode()).decode()
     }
-    oauth_response = requests.post(token_url, 
+    oauth_response = requests.Session().post(token_url, 
                         headers = token_headers,
                         params={
                             "grant_type": "client_credentials",
