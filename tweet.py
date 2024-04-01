@@ -40,7 +40,7 @@ def main():
                             ' client_secret': CONSUMER_SECRET
                         })
     print(oauth_response)
-    print(oauth_response['access_token'])
+    print(oauth_response.text)
     verifier = 'challenge'
     #
     token_response = twitter.fetch_access_token(access_token_url, verifier=verifier)
