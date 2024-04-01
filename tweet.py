@@ -35,7 +35,7 @@ def main():
                             client_secret = CONSUMER_SECRET,
                             resource_owner_key=ACCESS_KEY,
                             resource_owner_secret=ACCESS_KEY_SECRET,
-                            verifier=verifier)
+                            verifier=ACCESS_KEY )
     #
     fetch_response = twitter.fetch_request_token(request_token_url,
                             params={"x_auth_access_type": 'write'})
