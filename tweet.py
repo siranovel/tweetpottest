@@ -41,7 +41,7 @@ def main():
                         })
     print(oauth_response)
     print(oauth_response['access_token'])
-    verifier = oauth_response['access_token']
+    verifier = 'challenge'
     #
     token_response = twitter.fetch_access_token(access_token_url, verifier=verifier)
     print(token_response)
