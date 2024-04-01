@@ -22,7 +22,10 @@ def main():
     oauth_response = requests.post(token_url, 
                         headers = token_headers,
                         params={
-                            "grant_type": "client_credentials"
+                            "grant_type": "authorization_code",
+                            "redirect_uri": 'https://twitter.com/',
+                            'client_id': CONSUMER_KEY,
+                            ' client_secret': CONSUMER_SECRET
                         }).json()
     print(oauth_response)
     print(oauth_response['access_token'])
