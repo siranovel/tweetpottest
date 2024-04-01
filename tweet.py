@@ -38,7 +38,7 @@ def main():
                             "redirect_uri": 'https://twitter.com/',
                             'client_id': CONSUMER_KEY,
                             ' client_secret': CONSUMER_SECRET
-                        }).json()
+                        })
     print(oauth_response)
     print(oauth_response['access_token'])
     verifier = oauth_response['access_token']
