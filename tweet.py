@@ -43,7 +43,7 @@ def main():
     resource_owner_key = fetch_response.get('oauth_token')
     resource_owner_secret = fetch_response.get('oauth_token_secret')
     #
-    token_response = twitter.fetch_access_token(access_token_url)
+    token_response = twitter.fetch_access_token(access_token_url, verifier=resource_owner_key)
     print(token_response)
     #
     res = twitter.post(url_text, params={"text": url_text})
