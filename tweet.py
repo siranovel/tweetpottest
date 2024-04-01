@@ -9,7 +9,7 @@ ACCESS_KEY = os.environ.get("TWITTER_ACCESS_TOKEN")
 ACCESS_KEY_SECRET = os.environ.get("TWITTER_ACCESS_TOKEN_SECRET")
 tweet = 'New commit pushed! (twitter v2 oauth 1.0a)'
 request_token_url = 'https://api.twitter.com/oauth/request_token'
-token_url = 'https://api.twitter.com/oauth2/token'
+token_url = 'https://api.twitter.com/i/oauth2/token'
 access_token_url = 'https://api.twitter.com/oauth/access_token'
 url_text = 'https://api.twitter.com/2/tweets'
 
