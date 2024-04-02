@@ -34,7 +34,7 @@ def main():
     }
     res = ses.post(url_text, 
                         headers = tweet_headers,
-                        params = {'status': tweet})
+                        params = {'text': tweet})
     print(res)
     print(res.text)
 
