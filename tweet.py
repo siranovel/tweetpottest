@@ -18,8 +18,8 @@ def main():
     header_ouath = OAuth1(CONSUMER_KEY, 
                        client_secret = CONSUMER_SECRET,
                        resource_owner_key=ACCESS_KEY,
-                       resource_owner_secret=ACCESS_KEY_SECRET,
-                       decoding=None)
+                       resource_owner_secret=ACCESS_KEY_SECRET
+                       )
     ses = requests.Session()
     res = ses.post(url_text, params={"text": url_text}, auth=header_ouath)                       
     #
