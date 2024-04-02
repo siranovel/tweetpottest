@@ -21,7 +21,7 @@ def main():
                        resource_owner_secret=ACCESS_KEY_SECRET,
                        decoding=None)
     ses = requests.Session()
-    res = ses.post(url_text, params={"text": tweet})                       
+    res = ses.post(url_text, json={"text": tweet}, auth=header_ouath)                       
     #
     print(res)
     print(res.text)
