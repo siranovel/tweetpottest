@@ -1,6 +1,7 @@
 from requests_oauthlib import OAuth1Session
 import os
 import requests
+import base64
 
 CLIENT_ID = os.environ.get("TWITTER_CLIENT_ID")
 CLIENT_SECRET = os.environ.get("TWITTER_CLIENT_SECRET")
