@@ -6,6 +6,7 @@ import base64
 CLIENT_ID = os.environ.get("TWITTER_CLIENT_ID")
 CLIENT_SECRET = os.environ.get("TWITTER_CLIENT_SECRET")
 
+token_url = 'https://api.twitter.com/oauth2/token'
 url_text = 'https://api.twitter.com/2/tweets'
 tweet = 'New commit pushed! (oauth 2.0)'
 def main():
