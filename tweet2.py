@@ -13,6 +13,7 @@ def main():
                        )
     res = twitter.post(url_text, json={"text": tweet})
     print(res)
+    print(res.text)
 
 if __name__ == "__main__":
     main()
