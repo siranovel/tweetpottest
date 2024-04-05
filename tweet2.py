@@ -7,6 +7,19 @@ CLIENT_SECRET = os.environ.get("TWITTER_CLIENT_SECRET")
 url_text = 'https://api.twitter.com/2/tweets'
 tweet = 'New commit pushed! (oauth 2.0)'
 def main():
+    # OAuth1
+    ses = requests.Session()
+    # step 1
+    text = CLIENT_ID + ":" + CLIENT_SECRET
+    token_headers={
+        'Authorization': 'Basic ' + base64.b64encode(text.encode()).decode()
+    }
+    oauth_response = ses.post(token_url, 
+                        headers = token_headers,
+                        params={
+                            "grant_type": "client_credentials"
+                        }).json()
+    print(oauth_response)
     #
     twitter = OAuth1Session(CLIENT_ID, 
                        client_secret = CLIENT_SECRET
