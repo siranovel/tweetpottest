@@ -11,7 +11,8 @@ def main():
     twitter = OAuth1Session(CLIENT_ID, 
                        client_secret = CLIENT_SECRET
                        )
-    res = twitter.post(url_text, json={"text": tweet})                       
+    res = twitter.post(url_text, json={"text": tweet})
+    print(res)
 
 if __name__ == "__main__":
     main()
