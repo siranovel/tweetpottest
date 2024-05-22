@@ -15,5 +15,5 @@ client = tweepy.Client(
 
 # ツィートする
 tweet = 'New commit pushed! at tweepy'
-client.create_tweet(text=tweet)
-
+res = client.create_tweet(text=tweet)
+print(res)
