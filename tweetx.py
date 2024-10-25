@@ -14,6 +14,6 @@ client = tweepy.Client(
     access_token_secret = ACCESS_KEY_SECRET)
 
 # ツィートする
-tweet = 'New commit pushed! at tweepy'
-res = client.create_tweet(text=tweet)
-print(res)
+tweet = 'New commit pushed! num4anova'
+client.create_tweet(text=tweet)
+
