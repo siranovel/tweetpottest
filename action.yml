@@ -2,10 +2,21 @@ name: 'Hello World'
 description: 'Hello world from github actions'
 inputs:
   text:
-    description: github repository name
+    description: "X(Twitter) text"
     required: true
     default: ${{ github.repository }}
-
+  TWITTER_CONSUMER_KEY:
+    description: "Twitter API consumer key"
+    required: true
+  TWITTER_CONSUMER_SECRET:
+    description: "Twitter API consumer secret key"
+    required: true
+  TWITTER_ACCESS_TOKEN:
+    description: "Twitter API access token"
+    required: true
+  TWITTER_ACCESS_TOKEN_SECRET:
+    description: "Twitter API consumer token secret"
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
