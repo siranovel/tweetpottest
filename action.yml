@@ -1,8 +1,15 @@
-name: 'Hello World'
+name: 'Twitter pot'
+author: "siranovel"
 description: 'Hello world from github actions'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: "info"
+  color: "green"
 inputs:
   text:
-    description: "X(Twitter) text"
+    description: "X(Twitter) pot text"
     required: true
     default: ${{ github.repository }}
   TWITTER_CONSUMER_KEY:
@@ -17,6 +24,4 @@ inputs:
   TWITTER_ACCESS_TOKEN_SECRET:
     description: "Twitter API consumer token secret"
     required: true
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
+
