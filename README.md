@@ -10,7 +10,7 @@ See action.yml
 
 ~~~
     steps:
-      - uses: siranovel/tweetpot@v1.0.0
+      - uses: siranovel/tweetpottest@v1.0.0
         with:
           text: 'New commit pushd! at tweepy'
           twitter_consumer_key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
