@@ -1,4 +1,4 @@
-name: 'Twitter pot'
+name: siranovel/tweetpot
 author: "siranovel"
 description: 'Hello world from github actions'
 runs:
