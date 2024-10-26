@@ -26,7 +26,7 @@ See action.yml
 ## Inputs ##
 
 |Name                       |Description                      |Default                 |Required|
-|---------------------------|---------------------------------|------------------------|------------------------|--------|
+|---------------------------|---------------------------------|------------------------|------------------------|
 |text                       |X(Twitter) pot text              |${{ github.repository }}|yes     |
 |twitter_consumer_key       |Twitter API consumer key         |                        |yes     |
 |twitter_consumer_secret    |Twitter API consumer secret key  |                        |yes     |
