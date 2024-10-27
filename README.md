@@ -1,5 +1,5 @@
-tweetpottst
-===========
+tweetpottest
+============
 X(旧Twitter)に、potするだげ
 
 ## Usage ##
@@ -10,6 +10,8 @@ See action.yml
 
 ~~~
     steps:
+      - uses: actions/checkout@v4
+
       - uses: siranovel/tweetpottest@v1.0.0
         with:
           text: 'New commit pushd! at tweepy'
@@ -26,7 +28,7 @@ See action.yml
 ## Inputs ##
 
 |Name                       |Description                      |Default                 |Required|
-|---------------------------|---------------------------------|------------------------|------------------------|
+|---------------------------|---------------------------------|------------------------|--------|
 |text                       |X(Twitter) pot text              |${{ github.repository }}|yes     |
 |twitter_consumer_key       |Twitter API consumer key         |                        |yes     |
 |twitter_consumer_secret    |Twitter API consumer secret key  |                        |yes     |
@@ -44,6 +46,7 @@ See action.yml
 ## Contributing ##
 
 ## License ##
+
 [MIT](LICENSE)
 
 
